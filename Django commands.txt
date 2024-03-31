@@ -1,0 +1,46 @@
+1) pip install django -> to install django
+
+2) django-admin -> to see a list of commands
+
+3) django-admin startproject {project name} -> to start project and after running this command dango will create in-built files & folders
+
+4) python {project name}/manage.py runserver ->to get link
+
+5) create views.py file 
+
+6) from . import views -> in urls.py
+
+7) add path function inside urlpatterns in urls.py:
+        path('', views.index, name='index'),
+            # name='': Naming a path will help us to access a path from templates.
+        path('about/', views.about, name='about'),
+
+8) Creating Functions In views.py:
+    from django.http import HttpResponse
+
+    def index(request):
+        return HttpResponse('''Harry  Django CodeWithHarry''')
+
+    def about(request):
+        return HttpResponse("About Harry Bhai")
+
+9) Updating settings.py file :
+    Step 1: Open settings.py
+    Step 2: Find 'DIRS' in settings.py. Write "templates" inside the double quotes in DIRS. This is the folder where we will keep our HTML template files.
+
+10) To return anything from this HTML file, we need to make some changes in the views.py file. Open the views.py file and type the import statement given below:
+    from django.shortcuts import render
+
+11) def index(request):
+    return render(request, 'index.html')
+
+12) render() function takes three arguments:
+    1.request: It is the argument that is required to serve the input request.
+    2.Name of the template file: The name of the template which we want to use. Here, we have passed "index.html."
+    3.Name of the dictionary: We can also pass a dictionary containing variables to the template if we want.
+13) CSRF tokens-
+    1.CSRF stands for Cross-Site Request Forgery.
+    2.The server-side application generates and transmits a huge, random, and unpredictable number to the client      to make sure that the request is coming from the original client and not from a malicious website.
+    3.CSRF tokens are used to protect the site against CSRF attacks.
+14) How to create Apps-
+	python manage.py startapp name_of_the_app
